@@ -7,7 +7,7 @@ from torch import Tensor
 
 def build_adj_dict(num_nodes: int, edge_index: Tensor) -> dict[int, list[int]]:
     r"""
-    A function to turn a list of edged (edge_index) into an adjacency list,
+    A function to turn a list of edges (edge_index) into an adjacency list,
     stored in a dictionary with vertex numbers as keys and lists of adjacent
     nodes as values.
 
