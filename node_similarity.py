@@ -85,6 +85,7 @@ def dirichlet_energy(
     return torch.sqrt(de / num_nodes).item()
 
 
+@torch.no_grad
 def mean_average_distance(
     feat_matrix: Tensor,
     edge_index: Optional[Tensor] = None,
