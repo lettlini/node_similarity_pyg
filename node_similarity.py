@@ -77,7 +77,7 @@ def dirichlet_energy(
         return TLA.vector_norm(x_i - x_js, ord=p, dim=1).square().sum()
 
     for node_index in range(num_nodes):
-        own_feat_vector = feat_matrix[node_index, :]
+        own_feat_vector = feat_matrix[[node_index], :]
         nbh_feat_matrix = feat_matrix[adj_dict[node_index], :]
 
         de += inner(own_feat_vector, nbh_feat_matrix)
@@ -128,7 +128,7 @@ def mean_average_distance(
         ).sum()
 
     for node_index in range(num_nodes):
-        own_feat_vector = feat_matrix[node_index, :]
+        own_feat_vector = feat_matrix[[node_index], :]
         nbh_feat_matrix = feat_matrix[adj_dict[node_index], :]
 
         mad += inner(own_feat_vector, nbh_feat_matrix)
