@@ -13,7 +13,7 @@ def build_adj_dict(num_nodes: int, edge_index: Tensor) -> dict[int, list[int]]:
 
     Args:
         num_nodes (int): number of nodes
-        edge_index (torch.Tensor)
+        edge_index (torch.Tensor): edge list
 
     :rtype: dict
     """
@@ -68,7 +68,7 @@ def dirichlet_energy(
         )
 
     num_nodes: int = feat_matrix.shape[0]
-    de: float = 0
+    de: Tensor = 0
 
     if adj_dict is None:
         adj_dict = build_adj_dict(num_nodes=num_nodes, edge_index=edge_index)
@@ -115,7 +115,7 @@ def mean_average_distance(
         )
 
     num_nodes: int = feat_matrix.shape[0]
-    mad = 0
+    mad: Tensor = 0
 
     if adj_dict is None:
         adj_dict = build_adj_dict(num_nodes=num_nodes, edge_index=edge_index)
